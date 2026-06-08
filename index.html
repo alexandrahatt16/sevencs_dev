@@ -46,17 +46,23 @@
       <a href="#philosophy" data-i18n="nav.philosophy">Investment Philosophy</a>
       <a href="#focus" data-i18n="nav.focus">Where we focus</a>
       <a href="#holdings" data-i18n="nav.holdings">Our holdings</a>
-      <div class="lang-switch" id="langSwitch" role="group" aria-label="Language">
-        <button type="button" data-lang="en">EN</button>
-        <button type="button" data-lang="de">DE</button>
-        <button type="button" data-lang="it">IT</button>
+      <div class="lang-switch" id="langSwitch" aria-label="Language">
+        <button type="button" class="lang-switch__current" id="langToggle" aria-haspopup="true" aria-expanded="false">
+          <span id="langCurrent">EN</span>
+          <svg class="lang-switch__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="lang-switch__menu" id="langMenu" role="menu">
+          <button type="button" data-lang="en" role="menuitem">EN</button>
+          <button type="button" data-lang="de" role="menuitem">DE</button>
+          <button type="button" data-lang="it" role="menuitem">IT</button>
+        </div>
       </div>
       <a class="topnav__cta" href="#contact" data-i18n="nav.contact">Contact</a>
     </div>
   </nav>
 
   <!-- HERO -->
-  <header class="section cc-header">
+  <header class="section cc-header" id="hero">
     <span class="hero__glow" aria-hidden="true"></span>
 
     <div class="hero__bottom">
@@ -335,7 +341,7 @@
     const nav = document.getElementById('topnav');
     const toggle = document.getElementById('navToggle');
     const menu = document.getElementById('navMenu');
-    const onScroll = () => nav.classList.toggle('topnav--scrolled', window.scrollY > 60);
+    const onScroll = () => nav.classList.toggle('topnav--scrolled', window.scrollY > 220);
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
     toggle.addEventListener('click', () => {
@@ -345,6 +351,15 @@
     menu.querySelectorAll('a').forEach((a) =>
       a.addEventListener('click', () => nav.classList.remove('topnav--open'))
     );
+
+    /* Disable nav transitions during resize so the menu doesn't animate
+       when the layout switches to/from the hamburger breakpoint. */
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      document.documentElement.classList.add('no-anim');
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => document.documentElement.classList.remove('no-anim'), 150);
+    }, { passive: true });
 
     /* ---------- Language ---------- */
     const translations = {
@@ -440,7 +455,14 @@
       }
     };
 
-    const langButtons = document.querySelectorAll('#langSwitch button');
+    const langSwitch = document.getElementById('langSwitch');
+    const langToggle = document.getElementById('langToggle');
+    const langCurrent = document.getElementById('langCurrent');
+    const langButtons = document.querySelectorAll('#langSwitch [data-lang]');
+    function closeLangMenu() {
+      langSwitch.classList.remove('is-open');
+      langToggle.setAttribute('aria-expanded', 'false');
+    }
     function applyLang(lang) {
       const dict = translations[lang] || translations.en;
       document.documentElement.lang = lang === 'de' ? 'de-CH' : lang;
@@ -449,12 +471,48 @@
         if (dict[key] != null) el.textContent = dict[key];
       });
       langButtons.forEach((b) => b.classList.toggle('is-active', b.dataset.lang === lang));
+      langCurrent.textContent = lang.toUpperCase();
       try { localStorage.setItem('sevencs-lang', lang); } catch (e) {}
     }
     let initial = 'en';
     try { initial = localStorage.getItem('sevencs-lang') || 'en'; } catch (e) {}
     applyLang(initial);
-    langButtons.forEach((b) => b.addEventListener('click', () => applyLang(b.dataset.lang)));
+    langButtons.forEach((b) => b.addEventListener('click', () => { applyLang(b.dataset.lang); closeLangMenu(); }));
+
+
+    /* Desktop language dropdown toggle */
+    langToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const open = langSwitch.classList.toggle('is-open');
+      langToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    document.addEventListener('click', (e) => {
+      if (!langSwitch.contains(e.target)) closeLangMenu();
+    });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLangMenu(); });
+  </script>
+
+  <!-- Animated hero background (Vanta FOG, brand palette) -->
+  <script src="assets/vendor/three.r134.min.js"></script>
+  <script src="assets/vendor/vanta.fog.min.js"></script>
+  <script>
+    if (window.VANTA && window.VANTA.FOG) {
+      VANTA.FOG({
+        el: "#hero",
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200.0,
+        minWidth: 200.0,
+        highlightColor: 0xffa07a,
+        midtoneColor: 0xff5722,
+        lowlightColor: 0x0a1128,
+        baseColor: 0x0a1128,
+        blurFactor: 0.6,
+        zoom: 0.7,
+        speed: 0.7
+      });
+    }
   </script>
 
 </body>
