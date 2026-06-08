@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sevencs Holding</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body id="top">
+
+  <!-- Shared citrus gradient (used by nav logo + icons) -->
+  <svg width="0" height="0" aria-hidden="true" style="position:absolute"><defs>
+    <linearGradient id="citrusGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFA07A"/>
+      <stop offset="50%" stop-color="#FF5722"/>
+      <stop offset="100%" stop-color="#BF360C"/>
+    </linearGradient>
+  </defs></svg>
+
+  <!-- TOP NAVIGATION -->
+  <nav class="topnav" id="topnav">
+    <a class="brand brand--nav" href="#top" aria-label="Sevencs Holding">
+      <svg class="brand__mark" viewBox="-32.088235294117645 -16.5 298.3982323998777 253" aria-hidden="true">
+        <g fill="none" stroke="url(#citrusGrad)" stroke-width="11" stroke-linejoin="round" stroke-miterlimit="20" stroke-linecap="round">
+          <path d="M 0 5.5 L 249.8099971057601 5.5 L 123.63352651752479 220"/>
+          <path d="M 0 25.5 L 214.8416642548001 25.5 L 100.42989954891773 220"/>
+          <path d="M 0 45.5 L 179.87333140384007 45.5 L 77.22627258031065 220"/>
+          <path d="M 0 65.5 L 144.90499855288004 65.5 L 54.02264561170357 220"/>
+          <path d="M 0 85.5 L 109.93666570192003 85.5 L 30.8190186430965 220"/>
+          <path d="M 0 105.5 L 74.96833285096002 105.5 L 7.61539167448943 220"/>
+          <path d="M 0 125.5 L 40 125.5 L -15.588235294117645 220"/>
+        </g>
+      </svg>
+      <span class="brand__text">
+        <span class="brand__name">SEVENCS</span>
+        <span class="brand__sub">HOLDING</span>
+      </span>
+    </a>
+
+    <button class="topnav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <div class="topnav__menu" id="navMenu">
+      <a href="#about" data-i18n="nav.about">About</a>
+      <a href="#philosophy" data-i18n="nav.philosophy">Investment Philosophy</a>
+      <a href="#focus" data-i18n="nav.focus">Where we focus</a>
+      <a href="#holdings" data-i18n="nav.holdings">Our holdings</a>
+      <div class="lang-switch" id="langSwitch" role="group" aria-label="Language">
+        <button type="button" data-lang="en">EN</button>
+        <button type="button" data-lang="de">DE</button>
+        <button type="button" data-lang="it">IT</button>
+      </div>
+      <a class="topnav__cta" href="#contact" data-i18n="nav.contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="section cc-header">
+    <span class="hero__glow" aria-hidden="true"></span>
+
+    <div class="hero__bottom">
+      <h1 class="hero__title">
+        <span data-i18n="hero.l1">Entrepreneurs.</span><br>
+        <span data-i18n="hero.l2">Investors.</span><br>
+        <span data-i18n="hero.l3">Builders.</span>
+      </h1>
+
+      <div class="hero__card">
+        <p data-i18n="hero.card">Sevencs is a privately owned investment and business development group
+           with roots in Norway and Switzerland.</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section class="section about" id="about">
+    <div class="container">
+      <span class="eyebrow" data-i18n="about.eyebrow">About</span>
+      <h2 class="display" data-i18n="about.heading">A privately owned investment and business development group.</h2>
+
+      <div class="about__grid">
+        <div class="seven-motif" aria-hidden="true">
+          <svg viewBox="-32.088235294117645 -16.5 298.3982323998777 253">
+            <g fill="none" stroke="url(#citrusGrad)" stroke-width="11" stroke-linejoin="round" stroke-miterlimit="20" stroke-linecap="round">
+              <path d="M 0 5.5 L 249.8099971057601 5.5 L 123.63352651752479 220"/>
+              <path d="M 0 25.5 L 214.8416642548001 25.5 L 100.42989954891773 220"/>
+              <path d="M 0 45.5 L 179.87333140384007 45.5 L 77.22627258031065 220"/>
+              <path d="M 0 65.5 L 144.90499855288004 65.5 L 54.02264561170357 220"/>
+              <path d="M 0 85.5 L 109.93666570192003 85.5 L 30.8190186430965 220"/>
+              <path d="M 0 105.5 L 74.96833285096002 105.5 L 7.61539167448943 220"/>
+              <path d="M 0 125.5 L 40 125.5 L -15.588235294117645 220"/>
+            </g>
+          </svg>
+        </div>
+
+        <div class="about__copy">
+          <p data-i18n="about.p1">Founded by entrepreneurs with decades of experience building, scaling and
+             investing in international companies, Sevencs focuses on long-term ownership, active value
+             creation and international growth.</p>
+          <p data-i18n="about.p2">The founders have been involved in the development of several successful
+             Nordic and international companies within software, technology, digital services, real estate
+             and growth businesses.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INVESTMENT PHILOSOPHY -->
+  <section class="section philosophy" id="philosophy">
+    <div class="container">
+      <span class="eyebrow eyebrow--light" data-i18n="phil.eyebrow">Investment Philosophy</span>
+      <h2 class="display display--light" data-i18n="phil.heading">Successful companies are built through active
+         ownership, strong leadership and long-term commitment.</h2>
+      <div class="philosophy__cols">
+        <p data-i18n="phil.p1">We invest where we believe experience, network and operational involvement can
+           create lasting value.</p>
+        <p data-i18n="phil.p2">Our focus is not short-term financial returns, but building strong companies and
+           sustainable growth over time.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- AREAS OF INVESTMENT -->
+  <section class="section areas" id="focus">
+    <div class="container">
+      <span class="eyebrow" data-i18n="areas.eyebrow">Areas of Investment</span>
+      <h2 class="display" data-i18n="areas.heading">Where we focus.</h2>
+
+      <ul class="card-grid">
+        <li class="card card--icon">
+          <div class="card__top">
+            <span class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#citrusGrad)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="8 8 4 12 8 16"/><polyline points="16 8 20 12 16 16"/><line x1="13.5" y1="6" x2="10.5" y2="18"/></svg></span>
+            <span class="card__num">01</span>
+          </div>
+          <span class="card__label" data-i18n="area1">Software and technology</span>
+        </li>
+        <li class="card card--icon">
+          <div class="card__top">
+            <span class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#citrusGrad)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11a8 8 0 0 0-13.6-4.5L4 8.5"/><polyline points="4 4 4 8.5 8.5 8.5"/><path d="M4 13a8 8 0 0 0 13.6 4.5L20 15.5"/><polyline points="20 20 20 15.5 15.5 15.5"/></svg></span>
+            <span class="card__num">02</span>
+          </div>
+          <span class="card__label" data-i18n="area2">Digital transformation</span>
+        </li>
+        <li class="card card--icon">
+          <div class="card__top">
+            <span class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#citrusGrad)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 9 11 13 14.5 20 6"/><polyline points="15 6 20 6 20 11"/></svg></span>
+            <span class="card__num">03</span>
+          </div>
+          <span class="card__label" data-i18n="area3">Business development</span>
+        </li>
+        <li class="card card--icon">
+          <div class="card__top">
+            <span class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#citrusGrad)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11 12 4l8 7"/><path d="M6 10v10h12V10"/><rect x="10" y="14" width="4" height="6"/></svg></span>
+            <span class="card__num">04</span>
+          </div>
+          <span class="card__label" data-i18n="area4">Real estate</span>
+        </li>
+        <li class="card card--icon">
+          <div class="card__top">
+            <span class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#citrusGrad)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><line x1="3.5" y1="12" x2="20.5" y2="12"/><path d="M12 3.5c2.6 2.4 2.6 14.6 0 17c-2.6-2.4-2.6-14.6 0-17z"/></svg></span>
+            <span class="card__num">05</span>
+          </div>
+          <span class="card__label" data-i18n="area5">International growth companies</span>
+        </li>
+        <li class="card card--icon">
+          <div class="card__top">
+            <span class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#citrusGrad)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 20.5a5.2 6 0 1 1 10 0"/><line x1="7" y1="20.5" x2="7" y2="22"/><line x1="17" y1="20.5" x2="17" y2="22"/></svg></span>
+            <span class="card__num">06</span>
+          </div>
+          <span class="card__label" data-i18n="area6">Equestrian and sport horse businesses</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- COMPANIES AND INVESTMENTS -->
+  <section class="section companies" id="holdings">
+    <div class="container">
+      <span class="eyebrow" data-i18n="comp.eyebrow">Companies &amp; Investments</span>
+      <h2 class="display" data-i18n="comp.heading">Our holdings.</h2>
+      <p class="companies__lead" data-i18n="comp.lead">Through direct and indirect ownership structures, Sevencs
+         participates in a number of private and public investments. The group includes interests in companies
+         and activities related to:</p>
+
+      <ul class="card-grid">
+        <li class="card card--photo card--link" style="background-image:url('assets/karboninvest.jpg')">
+          <span class="card__label" data-i18n="hold1">Karbon Invest</span>
+          <span class="card__go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+          <a class="card__cover" href="https://karbon.no/" target="_blank" rel="noopener" aria-label="Visit Karbon Invest website"></a>
+        </li>
+        <li class="card card--photo card--link" style="background-image:url('assets/lucky7_1.jpg')">
+          <span class="card__label" data-i18n="hold2">Lucky7 AS</span>
+          <span class="card__go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+          <a class="card__cover" href="https://www.lucky7.no/en/" target="_blank" rel="noopener" aria-label="Visit Lucky7 AS website"></a>
+        </li>
+        <li class="card card--photo" style="background-image:url('assets/lucky7_2.jpg')"><span class="card__label" data-i18n="hold3">Lucky7 Sportshorses S.r.l.</span></li>
+        <li class="card card--photo" style="background-image:url('assets/softwareTechnologyInvestment.jpg')"><span class="card__label" data-i18n="hold4">Software and technology investments</span></li>
+        <li class="card card--photo" style="background-image:url('assets/realestate.jpg')"><span class="card__label" data-i18n="hold5">Real estate investments</span></li>
+        <li class="card card--photo" style="background-image:url('assets/growth.jpg')"><span class="card__label" data-i18n="hold6">Selected growth companies and private holdings</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- FOUNDERS' TRACK RECORD -->
+  <section class="section track">
+    <div class="container">
+      <div class="track__panel">
+        <span class="eyebrow eyebrow--light" data-i18n="track.eyebrow">Founders' Track Record</span>
+        <p class="track__lead" data-i18n="track.lead">The founders have previously been involved in building and
+           developing companies such as:</p>
+        <ul class="track__grid">
+          <li class="track__card card--link">
+            <span>Crayon</span>
+            <span class="card__go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+            <a class="card__cover" href="https://www.crayon.com/" target="_blank" rel="noopener" aria-label="Visit Crayon website"></a>
+          </li>
+          <li class="track__card card--link">
+            <span>Link Mobility</span>
+            <span class="card__go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+            <a class="card__cover" href="https://www.linkmobility.com/" target="_blank" rel="noopener" aria-label="Visit Link Mobility website"></a>
+          </li>
+          <li class="track__card card--link">
+            <span>Mnemonic</span>
+            <span class="card__go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+            <a class="card__cover" href="https://www.mnemonic.io/" target="_blank" rel="noopener" aria-label="Visit Mnemonic website"></a>
+          </li>
+          <li class="track__card"><span>Basefarm</span></li>
+          <li class="track__card card--link">
+            <span>99X</span>
+            <span class="card__go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+            <a class="card__cover" href="https://99x.io/" target="_blank" rel="noopener" aria-label="Visit 99X website"></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERNATIONAL PRESENCE -->
+  <section class="band">
+    <div class="container">
+      <span class="eyebrow eyebrow--light" data-i18n="band.eyebrow">International Presence</span>
+      <p class="band__text" data-i18n="band.text">Sevencs operates through companies, investments and business
+         activities across Norway, Switzerland, Italy and other international markets.</p>
+      <div class="band__countries">
+        <span data-i18n="country.norway">Norway</span>
+        <span data-i18n="country.switzerland">Switzerland</span>
+        <span data-i18n="country.italy">Italy</span>
+        <span data-i18n="country.international">International</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- MANAGEMENT -->
+  <section class="section management">
+    <div class="container">
+      <span class="eyebrow" data-i18n="mgmt.eyebrow">Management</span>
+      <h2 class="display" data-i18n="mgmt.heading">The people behind Sevencs.</h2>
+
+      <div class="management__people">
+        <figure class="person">
+          <div class="person__photo">
+            <span class="person__ph">RS</span>
+            <img src="assets/rune.jpg" alt="Rune Syversen" onerror="this.style.display='none'" />
+          </div>
+          <figcaption>
+            <span class="person__name">Rune Syversen</span>
+          </figcaption>
+        </figure>
+
+        <figure class="person">
+          <div class="person__photo person__photo--zoom">
+            <span class="person__ph">TF</span>
+            <img src="assets/tone.jpg" alt="Tone Fondevik" onerror="this.style.display='none'" />
+          </div>
+          <figcaption>
+            <span class="person__name">Tone Fondevik</span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <span class="eyebrow" data-i18n="contact.eyebrow">Contact</span>
+      <h2 class="display" data-i18n="contact.heading">Get in touch.</h2>
+
+      <div class="contact__grid">
+        <a class="contact__card" href="mailto:tone.fondevik@gmail.com">
+          <span class="contact__country" data-i18n="country.switzerland">Switzerland</span>
+          <span class="contact__email">tone.fondevik@gmail.com</span>
+          <span class="contact__cta" data-i18n="contact.cta">Send an email &rarr;</span>
+        </a>
+        <a class="contact__card" href="mailto:mads.syversen@gmail.com">
+          <span class="contact__country" data-i18n="country.norway">Norway</span>
+          <span class="contact__email">mads.syversen@gmail.com</span>
+          <span class="contact__cta" data-i18n="contact.cta">Send an email &rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <svg class="brand__mark brand__mark--lg" viewBox="-32.088235294117645 -16.5 298.3982323998777 253" aria-hidden="true">
+          <g fill="none" stroke="url(#citrusGrad)" stroke-width="11" stroke-linejoin="round" stroke-miterlimit="20" stroke-linecap="round">
+            <path d="M 0 5.5 L 249.8099971057601 5.5 L 123.63352651752479 220"/>
+            <path d="M 0 25.5 L 214.8416642548001 25.5 L 100.42989954891773 220"/>
+            <path d="M 0 45.5 L 179.87333140384007 45.5 L 77.22627258031065 220"/>
+            <path d="M 0 65.5 L 144.90499855288004 65.5 L 54.02264561170357 220"/>
+            <path d="M 0 85.5 L 109.93666570192003 85.5 L 30.8190186430965 220"/>
+            <path d="M 0 105.5 L 74.96833285096002 105.5 L 7.61539167448943 220"/>
+            <path d="M 0 125.5 L 40 125.5 L -15.588235294117645 220"/>
+          </g>
+        </svg>
+        <span class="brand__text">
+          <span class="brand__name brand__name--light">SEVENCS</span>
+          <span class="brand__sub">HOLDING</span>
+        </span>
+      </div>
+
+      <div class="footer__legal">
+        <span>Sevencs Holding</span>
+        <span data-i18n="footer.legal2">Norway &middot; Switzerland &middot; Italy</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* ---------- Navigation ---------- */
+    const nav = document.getElementById('topnav');
+    const toggle = document.getElementById('navToggle');
+    const menu = document.getElementById('navMenu');
+    const onScroll = () => nav.classList.toggle('topnav--scrolled', window.scrollY > 60);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    toggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('topnav--open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    menu.querySelectorAll('a').forEach((a) =>
+      a.addEventListener('click', () => nav.classList.remove('topnav--open'))
+    );
+
+    /* ---------- Language ---------- */
+    const translations = {
+      en: {
+        'nav.about': 'About', 'nav.philosophy': 'Investment Philosophy', 'nav.focus': 'Where we focus',
+        'nav.holdings': 'Our holdings', 'nav.contact': 'Contact',
+        'hero.l1': 'Entrepreneurs.', 'hero.l2': 'Investors.', 'hero.l3': 'Builders.',
+        'hero.card': 'Sevencs is a privately owned investment and business development group with roots in Norway and Switzerland.',
+        'about.eyebrow': 'About',
+        'about.heading': 'A privately owned investment and business development group.',
+        'about.p1': 'Founded by entrepreneurs with decades of experience building, scaling and investing in international companies, Sevencs focuses on long-term ownership, active value creation and international growth.',
+        'about.p2': 'The founders have been involved in the development of several successful Nordic and international companies within software, technology, digital services, real estate and growth businesses.',
+        'phil.eyebrow': 'Investment Philosophy',
+        'phil.heading': 'Successful companies are built through active ownership, strong leadership and long-term commitment.',
+        'phil.p1': 'We invest where we believe experience, network and operational involvement can create lasting value.',
+        'phil.p2': 'Our focus is not short-term financial returns, but building strong companies and sustainable growth over time.',
+        'areas.eyebrow': 'Areas of Investment', 'areas.heading': 'Where we focus.',
+        'area1': 'Software and technology', 'area2': 'Digital transformation', 'area3': 'Business development',
+        'area4': 'Real estate', 'area5': 'International growth companies', 'area6': 'Equestrian and sport horse businesses',
+        'comp.eyebrow': 'Companies & Investments', 'comp.heading': 'Our holdings.',
+        'comp.lead': 'Through direct and indirect ownership structures, Sevencs participates in a number of private and public investments. The group includes interests in companies and activities related to:',
+        'hold1': 'Karbon Invest', 'hold2': 'Lucky7 AS', 'hold3': 'Lucky7 Sportshorses S.r.l.',
+        'hold4': 'Software and technology investments', 'hold5': 'Real estate investments',
+        'hold6': 'Selected growth companies and private holdings',
+        'track.eyebrow': "Founders' Track Record",
+        'track.lead': 'The founders have previously been involved in building and developing companies such as:',
+        'band.eyebrow': 'International Presence',
+        'band.text': 'Sevencs operates through companies, investments and business activities across Norway, Switzerland, Italy and other international markets.',
+        'country.norway': 'Norway', 'country.switzerland': 'Switzerland', 'country.italy': 'Italy', 'country.international': 'International',
+        'mgmt.eyebrow': 'Management', 'mgmt.heading': 'The people behind Sevencs.',
+        'contact.eyebrow': 'Contact', 'contact.heading': 'Get in touch.', 'contact.cta': 'Send an email →',
+        'footer.legal2': 'Norway · Switzerland · Italy'
+      },
+      de: {
+        'nav.about': 'Über uns', 'nav.philosophy': 'Anlagephilosophie', 'nav.focus': 'Schwerpunkte',
+        'nav.holdings': 'Beteiligungen', 'nav.contact': 'Kontakt',
+        'hero.l1': 'Unternehmer.', 'hero.l2': 'Investoren.', 'hero.l3': 'Gestalter.',
+        'hero.card': 'Sevencs ist eine privat gehaltene Investment- und Geschäftsentwicklungsgruppe mit Wurzeln in Norwegen und der Schweiz.',
+        'about.eyebrow': 'Über uns',
+        'about.heading': 'Eine privat gehaltene Investment- und Geschäftsentwicklungsgruppe.',
+        'about.p1': 'Gegründet von Unternehmern mit jahrzehntelanger Erfahrung im Aufbau, in der Skalierung und in der Investition in internationale Unternehmen, konzentriert sich Sevencs auf langfristiges Eigentum, aktive Wertschöpfung und internationales Wachstum.',
+        'about.p2': 'Die Gründer waren an der Entwicklung mehrerer erfolgreicher nordischer und internationaler Unternehmen in den Bereichen Software, Technologie, digitale Dienstleistungen, Immobilien und Wachstumsunternehmen beteiligt.',
+        'phil.eyebrow': 'Anlagephilosophie',
+        'phil.heading': 'Erfolgreiche Unternehmen entstehen durch aktives Eigentum, starke Führung und langfristiges Engagement.',
+        'phil.p1': 'Wir investieren dort, wo wir überzeugt sind, dass Erfahrung, Netzwerk und operative Beteiligung dauerhaften Wert schaffen können.',
+        'phil.p2': 'Unser Fokus liegt nicht auf kurzfristigen finanziellen Renditen, sondern auf dem Aufbau starker Unternehmen und nachhaltigem Wachstum über die Zeit.',
+        'areas.eyebrow': 'Investitionsbereiche', 'areas.heading': 'Unsere Schwerpunkte.',
+        'area1': 'Software und Technologie', 'area2': 'Digitale Transformation', 'area3': 'Geschäftsentwicklung',
+        'area4': 'Immobilien', 'area5': 'Internationale Wachstumsunternehmen', 'area6': 'Pferdesport- und Sportpferde-Unternehmen',
+        'comp.eyebrow': 'Unternehmen & Beteiligungen', 'comp.heading': 'Unsere Beteiligungen.',
+        'comp.lead': 'Über direkte und indirekte Eigentumsstrukturen beteiligt sich Sevencs an einer Reihe privater und öffentlicher Investitionen. Die Gruppe hält Beteiligungen an Unternehmen und Aktivitäten in den Bereichen:',
+        'hold1': 'Karbon Invest', 'hold2': 'Lucky7 AS', 'hold3': 'Lucky7 Sportshorses S.r.l.',
+        'hold4': 'Investitionen in Software und Technologie', 'hold5': 'Immobilieninvestitionen',
+        'hold6': 'Ausgewählte Wachstumsunternehmen und private Beteiligungen',
+        'track.eyebrow': 'Erfolgsbilanz der Gründer',
+        'track.lead': 'Die Gründer waren zuvor am Aufbau und an der Entwicklung von Unternehmen wie diesen beteiligt:',
+        'band.eyebrow': 'Internationale Präsenz',
+        'band.text': 'Sevencs ist über Unternehmen, Investitionen und Geschäftstätigkeiten in Norwegen, der Schweiz, Italien und weiteren internationalen Märkten tätig.',
+        'country.norway': 'Norwegen', 'country.switzerland': 'Schweiz', 'country.italy': 'Italien', 'country.international': 'International',
+        'mgmt.eyebrow': 'Management', 'mgmt.heading': 'Die Menschen hinter Sevencs.',
+        'contact.eyebrow': 'Kontakt', 'contact.heading': 'Kontaktieren Sie uns.', 'contact.cta': 'E-Mail senden →',
+        'footer.legal2': 'Norwegen · Schweiz · Italien'
+      },
+      it: {
+        'nav.about': 'Chi siamo', 'nav.philosophy': "Filosofia d'investimento", 'nav.focus': 'I nostri ambiti',
+        'nav.holdings': 'Partecipazioni', 'nav.contact': 'Contatti',
+        'hero.l1': 'Imprenditori.', 'hero.l2': 'Investitori.', 'hero.l3': 'Costruttori.',
+        'hero.card': 'Sevencs è un gruppo privato di investimento e sviluppo aziendale con radici in Norvegia e Svizzera.',
+        'about.eyebrow': 'Chi siamo',
+        'about.heading': 'Un gruppo privato di investimento e sviluppo aziendale.',
+        'about.p1': "Fondata da imprenditori con decenni di esperienza nella creazione, nella crescita e nell'investimento in aziende internazionali, Sevencs si concentra sulla proprietà a lungo termine, sulla creazione di valore attiva e sulla crescita internazionale.",
+        'about.p2': "I fondatori hanno partecipato allo sviluppo di diverse aziende nordiche e internazionali di successo nei settori del software, della tecnologia, dei servizi digitali, dell'immobiliare e delle imprese in crescita.",
+        'phil.eyebrow': "Filosofia d'investimento",
+        'phil.heading': 'Le aziende di successo si costruiscono attraverso una proprietà attiva, una leadership forte e un impegno a lungo termine.',
+        'phil.p1': "Investiamo dove riteniamo che esperienza, rete e coinvolgimento operativo possano creare valore duraturo.",
+        'phil.p2': 'Il nostro obiettivo non sono i rendimenti finanziari a breve termine, ma la costruzione di aziende solide e una crescita sostenibile nel tempo.',
+        'areas.eyebrow': "Aree d'investimento", 'areas.heading': 'I nostri ambiti.',
+        'area1': 'Software e tecnologia', 'area2': 'Trasformazione digitale', 'area3': 'Sviluppo aziendale',
+        'area4': 'Immobiliare', 'area5': 'Aziende internazionali in crescita', 'area6': 'Attività equestri e di cavalli sportivi',
+        'comp.eyebrow': 'Aziende e investimenti', 'comp.heading': 'Le nostre partecipazioni.',
+        'comp.lead': 'Attraverso strutture di proprietà dirette e indirette, Sevencs partecipa a numerosi investimenti privati e pubblici. Il gruppo detiene interessi in aziende e attività legate a:',
+        'hold1': 'Karbon Invest', 'hold2': 'Lucky7 AS', 'hold3': 'Lucky7 Sportshorses S.r.l.',
+        'hold4': 'Investimenti in software e tecnologia', 'hold5': 'Investimenti immobiliari',
+        'hold6': 'Aziende in crescita selezionate e partecipazioni private',
+        'track.eyebrow': 'Esperienza dei fondatori',
+        'track.lead': 'I fondatori hanno precedentemente contribuito alla creazione e allo sviluppo di aziende come:',
+        'band.eyebrow': 'Presenza internazionale',
+        'band.text': 'Sevencs opera attraverso aziende, investimenti e attività commerciali in Norvegia, Svizzera, Italia e altri mercati internazionali.',
+        'country.norway': 'Norvegia', 'country.switzerland': 'Svizzera', 'country.italy': 'Italia', 'country.international': 'Internazionale',
+        'mgmt.eyebrow': 'Direzione', 'mgmt.heading': 'Le persone dietro Sevencs.',
+        'contact.eyebrow': 'Contatti', 'contact.heading': 'Mettiti in contatto.', 'contact.cta': "Invia un'e-mail →",
+        'footer.legal2': 'Norvegia · Svizzera · Italia'
+      }
+    };
+
+    const langButtons = document.querySelectorAll('#langSwitch button');
+    function applyLang(lang) {
+      const dict = translations[lang] || translations.en;
+      document.documentElement.lang = lang === 'de' ? 'de-CH' : lang;
+      document.querySelectorAll('[data-i18n]').forEach((el) => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key] != null) el.textContent = dict[key];
+      });
+      langButtons.forEach((b) => b.classList.toggle('is-active', b.dataset.lang === lang));
+      try { localStorage.setItem('sevencs-lang', lang); } catch (e) {}
+    }
+    let initial = 'en';
+    try { initial = localStorage.getItem('sevencs-lang') || 'en'; } catch (e) {}
+    applyLang(initial);
+    langButtons.forEach((b) => b.addEventListener('click', () => applyLang(b.dataset.lang)));
+  </script>
+
+</body>
+</html>

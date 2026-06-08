@@ -1,0 +1,13 @@
+{
+  "name": "website-recreation",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Recreate websites from reference screenshots and verify with Puppeteer captures.",
+  "scripts": {
+    "shot": "node tools/screenshot.mjs"
+  },
+  "dependencies": {
+    "puppeteer": "^24.0.0"
+  }
+}
