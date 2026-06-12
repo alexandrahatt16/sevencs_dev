@@ -128,7 +128,35 @@ a { color: inherit; text-decoration: none; }
 .no-anim .topnav__menu { transition: none !important; }
 .brand--nav .brand__mark { height: 34px; }
 .brand--nav .brand__name { font-size: 1.05rem; }
-.brand--nav .brand__sub { font-size: 0.52rem; letter-spacing: 0.38em; }
+.brand--nav .brand__sub { font-size: 0.52rem; letter-spacing: 0.38em; color: var(--navy); opacity: 0.65; }
+.brand--nav .brand__mark path { fill: var(--navy); transition: fill 0.35s ease; }
+.brand--nav .brand__name {
+  background: none;
+  -webkit-background-clip: initial;
+  background-clip: initial;
+  -webkit-text-fill-color: var(--navy);
+  color: var(--navy);
+}
+.topnav--scrolled .brand--nav .brand__mark path { fill: url(#citrusGrad); }
+.topnav--scrolled .brand--nav .brand__name {
+  background: var(--citrus);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+.topnav--scrolled .brand--nav .brand__sub { color: var(--citrus-1); opacity: 1; }
+
+/* When hamburger menu is open, nav background is navy - switch logo to citrus */
+.topnav--open .brand--nav .brand__mark path { fill: url(#citrusGrad); }
+.topnav--open .brand--nav .brand__name {
+  background: var(--citrus);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+.topnav--open .brand--nav .brand__sub { color: var(--citrus-1); opacity: 1; }
 
 .topnav__menu { display: flex; align-items: center; gap: 2rem; }
 .topnav__menu a {
@@ -371,7 +399,9 @@ a { color: inherit; text-decoration: none; }
   align-items: stretch;
   justify-content: space-between;
   min-height: 180px;
+  cursor: default;
 }
+.card--icon:hover { transform: none; box-shadow: none; }
 .card__top { display: flex; align-items: center; justify-content: space-between; }
 .card__icon { display: inline-flex; }
 .card__icon svg { width: 30px; height: 30px; display: block; }
@@ -392,9 +422,39 @@ a { color: inherit; text-decoration: none; }
   height: 3px;
   border-radius: 2px;
   background: var(--citrus);
-  transition: width 0.3s ease;
 }
-.card--icon:hover .card__label::after { width: 54px; }
+
+/* ---------- FOCUS LIST (Where we focus) ---------- */
+.focus-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.8rem 0 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 4rem;
+}
+.focus-item {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  padding: 1.1em 0;
+  border-bottom: 1px solid rgba(10, 17, 40, 0.1);
+}
+.focus-item:nth-child(1),
+.focus-item:nth-child(2) { border-top: 1px solid rgba(10, 17, 40, 0.1); }
+.focus-num {
+  font-family: Georgia, serif;
+  font-size: 0.85rem;
+  background: var(--citrus);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  flex-shrink: 0;
+  min-width: 1.6em;
+}
+.focus-icon { display: inline-flex; flex-shrink: 0; }
+.focus-icon svg { width: 22px; height: 22px; display: block; }
+.focus-label { font-size: 0.95rem; font-weight: 500; color: var(--ink); }
 
 /* Photo-backed holding cards */
 .card--photo {
@@ -443,14 +503,13 @@ a { color: inherit; text-decoration: none; }
   background: var(--citrus);
   color: #fff;
   pointer-events: none;
-  opacity: 0;
-  transform: translateY(-4px) scale(0.9);
-  transition: opacity 0.25s ease, transform 0.25s ease;
+  opacity: 1;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
   box-shadow: 0 6px 16px rgba(255, 87, 34, 0.4);
 }
 .card__go svg { width: 15px; height: 15px; }
 .card--link:hover .card__go,
-.card--link:focus-within .card__go { opacity: 1; transform: translateY(0) scale(1); }
+.card--link:focus-within .card__go { transform: scale(1.1); box-shadow: 0 8px 20px rgba(255, 87, 34, 0.55); }
 .card--link:hover { transform: translateY(-3px); }
 
 /* ---------- COMPANIES ---------- */
@@ -484,21 +543,97 @@ a { color: inherit; text-decoration: none; }
   padding: 0;
   margin: 0;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
 }
-.track__grid li {
-  position: relative;
-  border: 1px solid rgba(245, 245, 220, 0.16);
-  border-radius: 12px;
-  padding: 1.5em 1em;
-  text-align: center;
-  font-family: Georgia, serif;
-  font-size: 1.2rem;
-  color: var(--sand);
-  transition: border-color 0.2s ease, transform 0.2s ease;
+.track__card {
+  perspective: 700px;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  display: block;
+  gap: 0;
+  transition: none;
+  background: transparent;
+  min-height: 150px;
 }
-.track__grid .card--link:hover { border-color: var(--citrus-2); }
+.track__flip-inner {
+  position: relative;
+  width: 100%;
+  height: 150px;
+  transform-style: preserve-3d;
+  transition: transform 0.55s ease;
+}
+.track__card:hover .track__flip-inner {
+  transform: rotateY(180deg);
+}
+.track__flip-front,
+.track__flip-back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border: 1px solid rgba(245, 245, 220, 0.14);
+  border-radius: 12px;
+  padding: 1.2em 1.2em;
+  display: flex;
+  flex-direction: column;
+}
+.track__flip-front {
+  justify-content: flex-end;
+}
+.track__flip-front .track__card-name { font-size: 1.1rem; }
+.track__flip-back {
+  transform: rotateY(180deg);
+  background: rgba(245, 245, 220, 0.05);
+  border-color: rgba(245, 245, 220, 0.28);
+  justify-content: flex-start;
+  gap: 0.6em;
+}
+.track__flip-back-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5em;
+}
+.track__flip-back .track__card-name { font-size: 0.9rem; }
+.track__card-name {
+  font-family: Georgia, serif;
+  font-size: 1.05rem;
+  color: var(--sand);
+  line-height: 1.25;
+}
+.track__link-btn {
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 87, 34, 0.45);
+  color: var(--citrus-1);
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+.track__link-btn svg { width: 13px; height: 13px; display: block; }
+.track__link-btn:hover {
+  background: var(--citrus-2);
+  border-color: var(--citrus-2);
+  color: #fff;
+}
+.track__card-desc {
+  font-size: 0.77rem;
+  line-height: 1.65;
+  color: var(--sand-muted);
+  margin: 0;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* Tap-to-flip for touch devices */
+.track__card.is-flipped .track__flip-inner { transform: rotateY(180deg); }
+/* Tap-to-show bio for touch devices */
+.person__photo.is-active .person__hover-info { opacity: 1; }
 
 /* ---------- INTERNATIONAL PRESENCE BAND ---------- */
 .band { background-color: var(--navy); padding: 5em 0; position: relative; overflow: hidden; }
@@ -586,6 +721,36 @@ a { color: inherit; text-decoration: none; }
 .person figcaption { margin-top: 1em; }
 .person__name { font-size: 1.3rem; }
 
+.person__hover-info {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  background: rgba(10, 17, 40, 0.93);
+  padding: 1.5em 1.4em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7em;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  overflow-y: auto;
+  border-radius: 12px;
+}
+.person__photo:hover .person__hover-info { opacity: 1; }
+.person__hover-name {
+  font-family: Georgia, serif;
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--sand);
+  margin: 0;
+  flex-shrink: 0;
+}
+.person__hover-bio {
+  font-size: 0.72rem;
+  line-height: 1.7;
+  color: var(--sand-muted);
+  margin: 0;
+}
+
 /* ---------- CONTACT ---------- */
 .contact { background-color: var(--sand); }
 .contact__grid {
@@ -651,9 +816,11 @@ a { color: inherit; text-decoration: none; }
   .card { min-height: 130px; padding: 1.3em; }
   .card--icon { min-height: 145px; }
   .card--photo { min-height: 150px; }
+  .focus-list { column-gap: 2.5rem; }
   .track__panel { padding: 2.6em 2em; }
-  .track__grid { grid-template-columns: repeat(3, 1fr); gap: 0.8rem; }
-  .track__grid li { padding: 1.15em 0.8em; font-size: 1.05rem; }
+  .track__grid { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
+  .track__flip-inner { height: 165px; }
+  .track__card { min-height: 165px; }
   .hero__bottom { flex-direction: column; align-items: flex-start; }
   .hero__card { max-width: 100%; }
   .seven-motif svg { height: 170px; }
@@ -737,9 +904,12 @@ a { color: inherit; text-decoration: none; }
   .card__label { font-size: 0.85rem; }
   .card--icon .card__label { padding-bottom: 0.7em; }
   .card--photo { min-height: 124px; }
+  .focus-list { grid-template-columns: 1fr; }
+  .focus-item:nth-child(2) { border-top: none; }
   .track__panel { padding: 2em 1.4em; }
-  .track__grid { grid-template-columns: 1fr 1fr; gap: 0.7rem; }
-  .track__grid li { padding: 0.95em 0.7em; font-size: 1rem; }
+  .track__grid { grid-template-columns: 1fr; gap: 0.7rem; }
+  .track__flip-inner { height: 150px; }
+  .track__card { min-height: 150px; }
   .management__people { grid-template-columns: 1fr; }
   .container { padding: 0 1.4rem; }
   .footer__grid { flex-direction: column; align-items: flex-start; }
